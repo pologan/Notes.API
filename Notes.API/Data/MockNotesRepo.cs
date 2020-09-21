@@ -8,7 +8,7 @@ namespace Notes.API.Data
 {
     public class MockNotesRepo : INotesRepo
     {
-        public IEnumerable<Note> GetAppNotes()
+        public IEnumerable<Note> GetAllNotes()
         {
             var notes = new List<Note>
             { new Note { Id = 0, Content = "Chuj w dupie", AddDate = DateTime.Now },

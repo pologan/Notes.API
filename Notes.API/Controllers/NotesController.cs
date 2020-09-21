@@ -22,7 +22,7 @@ namespace Notes.API.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Note>> GetAllNotes()
         {
-            var noteItems = _repository.GetAppNotes();
+            var noteItems = _repository.GetAllNotes();
 
             return Ok(noteItems);
         }

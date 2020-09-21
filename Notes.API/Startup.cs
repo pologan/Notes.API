@@ -20,10 +20,12 @@ namespace Notes.API
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<NotesContext>(opt => opt.UseSqlServer
+            (Configuration.GetConnectionString("NotesConnection")));
 
             services.AddControllers();
 
-            services.AddScoped<INotesRepo, MockNotesRepo>(); 
+            services.AddScoped<INotesRepo, SqlNotesRepo>(); 
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

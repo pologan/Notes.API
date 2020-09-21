@@ -9,7 +9,7 @@ namespace Notes.API.Data
 {
     public interface INotesRepo
     {
-        IEnumerable<Note> GetAppNotes();
+        IEnumerable<Note> GetAllNotes();
         Note GetNoteById(int id);
 
     }
