@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 
 namespace Notes.API.Data
@@ -15,6 +16,16 @@ namespace Notes.API.Data
             _context = context;
         }
 
+        public void CreateNote(Note note)
+        {
+            if (note == null)
+            {
+                throw new ArgumentNullException(nameof(note));
+            }
+
+            _context.Notes.Add(note);
+        }
+
         public IEnumerable<Note> GetAllNotes()
         {
             return _context.Notes.ToList();
@@ -23,6 +34,11 @@ namespace Notes.API.Data
         public Note GetNoteById(int id)
         {
             return _context.Notes.FirstOrDefault(n => n.Id == id);
+        }
+
+        public bool SaveChanges()
+        {
+            return (_context.SaveChanges() >= 0);
         }
     }
 }

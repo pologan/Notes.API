@@ -9,8 +9,10 @@ namespace Notes.API.Data
 {
     public interface INotesRepo
     {
+        bool SaveChanges();
+
         IEnumerable<Note> GetAllNotes();
         Note GetNoteById(int id);
-
+        void CreateNote(Note note);
     }
 }
