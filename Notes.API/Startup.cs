@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Notes.API.Data;
 using Notes.API.Models;
 using System;
+using Newtonsoft.Json.Serialization;
 
 namespace Notes.API
 {
@@ -25,7 +26,10 @@ namespace Notes.API
             services.AddDbContext<NotesContext>(opt => opt.UseSqlServer
             (Configuration.GetConnectionString("NotesConnection")));
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(s =>
+            {
+                s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            });
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             

@@ -14,6 +14,8 @@ namespace Notes.API.Profiles
         {
             CreateMap<Note, NoteReadDto>();
             CreateMap<NoteCreateDto, Note>();
+            CreateMap<NoteUpdateDto, Note>();
+            CreateMap<Note, NoteUpdateDto>();
         }
     }
 }

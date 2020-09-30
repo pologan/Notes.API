@@ -26,6 +26,16 @@ namespace Notes.API.Data
             _context.Notes.Add(note);
         }
 
+        public void DeleteNote(Note note)
+        {
+            if (note == null)
+            {
+                throw new ArgumentNullException(nameof(note));
+            }
+
+            _context.Notes.Remove(note);
+        }
+
         public IEnumerable<Note> GetAllNotes()
         {
             return _context.Notes.ToList();
@@ -39,6 +49,11 @@ namespace Notes.API.Data
         public bool SaveChanges()
         {
             return (_context.SaveChanges() >= 0);
+        }
+
+        public void UpdateNote(Note note)
+        {
+
         }
     }
 }
