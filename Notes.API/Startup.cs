@@ -5,10 +5,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Notes.API.Data;
-using Notes.API.Models;
-using System;
 using Newtonsoft.Json.Serialization;
+using Notes.API.Data;
+using System;
 
 namespace Notes.API
 {
@@ -42,6 +41,8 @@ namespace Notes.API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            
 
             app.UseHttpsRedirection();
 
